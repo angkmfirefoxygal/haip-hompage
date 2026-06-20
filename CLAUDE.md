@@ -25,15 +25,35 @@ python3 -m http.server 3000
 ```
 
 ### 코드 수정 → 배포
+
+**1. 로컬에서**
 ```bash
-# 로컬에서
 git add .
 git commit -m "커밋 메시지"
 git push
-
-# EC2에서
-cd /var/www/haip && sudo git pull
 ```
+
+**2. EC2에서**
+```bash
+ssh -i ~/Downloads/haip-home.pem ec2-user@13.221.115.180
+bash /var/www/haip/deploy.sh
+```
+`deploy.sh`가 git pull + nginx reload 자동 처리.
+
+---
+
+### Nginx 설정 변경 시 (추가 작업 필요)
+```bash
+# EC2에서
+sudo cp /var/www/haip/nginx/haip.conf /etc/nginx/conf.d/haip.conf
+sudo nginx -t && sudo systemctl reload nginx
+```
+
+> **주의**
+> - Nginx 설정 경로: `conf.d` (sites-available 아님 — Amazon Linux 2)
+> - cp 전 반드시 `nginx -t`로 문법 확인
+> - HTTPS 인증서는 certbot 관리 중 → nginx.conf 덮어쓰면 443 끊김
+> - 복구 필요 시: `sudo certbot --nginx -d haip.kr -d www.haip.kr` → 옵션 `1` 선택
 
 ---
 
