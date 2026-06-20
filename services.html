@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Studio HaiP</title>
+  <meta name="description" content="웹 마케팅, 캠페인, UX/UI 디자인 서비스를 제공합니다." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .service-detail { padding: 80px 0; border-bottom: 1px solid var(--gray-2); }
+    .service-detail:last-of-type { border-bottom: none; }
+    .service-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .service-detail-grid.reverse { direction: rtl; }
+    .service-detail-grid.reverse > * { direction: ltr; }
+    .service-num { font-size: 80px; font-weight: 900; color: var(--lime); line-height: 1; margin-bottom: 12px; letter-spacing: -0.05em; }
+    .service-detail h2 { font-size: clamp(28px, 3.5vw, 44px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 20px; }
+    .service-detail p { font-size: 16px; line-height: 1.8; color: var(--gray-4); margin-bottom: 16px; }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .tag { padding: 6px 14px; border: 1.5px solid var(--gray-2); border-radius: 100px; font-size: 13px; font-weight: 500; color: var(--gray-4); }
+    .service-visual { background: var(--gray-1); border-radius: 20px; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; }
+    .service-visual.blue { background: var(--blue); }
+    .service-visual.lime { background: var(--lime); }
+    .service-visual-label { font-size: 14px; font-weight: 600; color: var(--gray-3); letter-spacing: 0.05em; }
+    .service-visual.blue .service-visual-label { color: rgba(255,255,255,0.5); }
+    .service-visual.lime .service-visual-label { color: rgba(0,0,0,0.3); }
+    .process { padding: 100px 0; background: var(--gray-1); }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 56px; }
+    .process-step { padding: 0 28px; border-right: 1px solid var(--gray-2); }
+    .process-step:last-child { border-right: none; }
+    .process-step-num { font-size: 13px; font-weight: 700; color: var(--blue); letter-spacing: 0.1em; margin-bottom: 16px; }
+    .process-step h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .process-step p { font-size: 13px; line-height: 1.7; color: var(--gray-4); }
+    @media (max-width: 1024px) {
+      .process-steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .process-step { border-right: none; border-bottom: 1px solid var(--gray-2); padding: 0 0 32px; }
+      .process-step:last-child, .process-step:nth-child(even) { border-bottom: none; }
+    }
+    @media (max-width: 768px) {
+      .service-detail-grid { grid-template-columns: 1fr; gap: 40px; }
+      .service-detail-grid.reverse { direction: ltr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .process-step { border-bottom: 1px solid var(--gray-2) !important; padding: 0 0 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">HaiP</a>
+      <ul class="nav-links">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="nav-burger" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile">
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-hero-label reveal">Services</p>
+      <h1 class="page-hero-title reveal">브랜드를 위한<br>세 가지 해법</h1>
+      <p class="page-hero-sub reveal">Web Campaign, Develop, UX/UI Design — HaiP가 제공하는 서비스는 모두 하나의 목표를 향합니다. 브랜드의 성장.</p>
+    </div>
+  </section>
+
+  <!-- SERVICE 1 -->
+  <section class="service-detail">
+    <div class="container">
+      <div class="service-detail-grid">
+        <div>
+          <div class="service-num reveal">01</div>
+          <h2 class="reveal">Web Campaign</h2>
+          <p class="reveal">브랜드 메시지를 명확하게 전달하는 캠페인을 기획하고 실행합니다. SNS, 퍼포먼스 광고, 콘텐츠 마케팅까지 통합적으로 운영합니다.</p>
+          <p class="reveal">단순한 노출이 아닌 전환을 이끄는 캠페인, 측정 가능한 성과를 목표로 합니다.</p>
+          <div class="service-tags reveal">
+            <span class="tag">캠페인 기획</span>
+            <span class="tag">SNS 운영</span>
+            <span class="tag">퍼포먼스 광고</span>
+            <span class="tag">콘텐츠 마케팅</span>
+            <span class="tag">성과 분석</span>
+          </div>
+        </div>
+        <div class="service-visual lime reveal reveal-delay-1">
+          <span class="service-visual-label">Web Marketing Visual</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE 2 -->
+  <section class="service-detail">
+    <div class="container">
+      <div class="service-detail-grid reverse">
+        <div>
+          <div class="service-num reveal">02</div>
+          <h2 class="reveal">Develop</h2>
+          <p class="reveal">설계된 디자인을 실제 웹으로 구현합니다. 빠르고 안정적인 웹사이트를 개발하여 브랜드의 온라인 거점을 만들어드립니다.</p>
+          <p class="reveal">클린한 코드와 최적화된 성능으로 사용자 경험을 완성합니다.</p>
+          <div class="service-tags reveal">
+            <span class="tag">웹사이트 개발</span>
+            <span class="tag">프론트엔드</span>
+            <span class="tag">반응형 구현</span>
+            <span class="tag">CMS 연동</span>
+            <span class="tag">성능 최적화</span>
+          </div>
+        </div>
+        <div class="service-visual blue reveal reveal-delay-1">
+          <span class="service-visual-label">Campaign Visual</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE 3 -->
+  <section class="service-detail">
+    <div class="container">
+      <div class="service-detail-grid">
+        <div>
+          <div class="service-num reveal">03</div>
+          <h2 class="reveal">UX/UI Design</h2>
+          <p class="reveal">사용자 중심으로 경험을 설계합니다. 리서치에서 시작해 와이어프레임, 프로토타입, 최종 디자인까지 체계적으로 진행합니다.</p>
+          <p class="reveal">감각적인 비주얼과 직관적인 사용성, 두 마리 토끼를 모두 잡습니다.</p>
+          <div class="service-tags reveal">
+            <span class="tag">홈페이지 제작</span>
+            <span class="tag">랜딩페이지</span>
+            <span class="tag">UX 리서치</span>
+            <span class="tag">프로토타이핑</span>
+            <span class="tag">반응형 디자인</span>
+          </div>
+        </div>
+        <div class="service-visual reveal reveal-delay-1" style="background: #F3FF94;">
+          <span class="service-visual-label">UX/UI Design Visual</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <div class="container">
+      <div class="section-label reveal">How We Work</div>
+      <h2 class="section-title reveal">프로젝트 진행 방식</h2>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="process-step-num">STEP 01</div>
+          <h3>Discovery</h3>
+          <p>브랜드 이해, 목표 정의, 타겟 오디언스 분석을 통해 프로젝트의 방향을 설정합니다.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-step-num">STEP 02</div>
+          <h3>Strategy</h3>
+          <p>데이터와 인사이트를 바탕으로 전략을 수립하고 실행 로드맵을 작성합니다.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-step-num">STEP 03</div>
+          <h3>Execution</h3>
+          <p>기획된 전략을 빠르고 정확하게 실행합니다. 주기적인 소통으로 방향을 조율합니다.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="process-step-num">STEP 04</div>
+          <h3>Measure</h3>
+          <p>성과를 측정하고 분석합니다. 결과를 투명하게 공유하고 다음 액션을 제안합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-cta reveal">
+        <p class="footer-cta-eyebrow">Let's work together</p>
+        <h2 class="footer-cta-title">함께 만들어볼까요?<br><span>프로젝트를 시작해요.</span></h2>
+        <a href="contact.html" class="btn btn-primary">프로젝트 문의하기 →</a>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-logo">HaiP</span>
+        <div class="footer-links">
+          <a href="mailto:haip.office@gmail.com">haip.office@gmail.com</a>
+          <a href="tel:01099138511">010-9913-8511</a>
+          <a href="https://www.instagram.com/studio.haip/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <span class="footer-copy">© 2026 Studio HaiP. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
