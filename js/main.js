@@ -63,3 +63,19 @@ const countObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 document.querySelectorAll('.stat-num[data-target]').forEach(el => countObserver.observe(el));
+
+/* ── Services accordion ── */
+document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const item = trigger.closest('.accordion-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      trigger.setAttribute('aria-expanded', 'true');
+    }
+  });
+});

@@ -267,7 +267,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero-accent {
   position: absolute;
   right: -40px;
-  top: 50%;
+  top: calc(50% + 40px);
   transform: translateY(-50%);
   width: clamp(320px, 40vw, 560px);
   height: clamp(320px, 40vw, 560px);
@@ -341,6 +341,121 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .services-link {
   margin-top: 48px;
   text-align: right;
+}
+
+/* ── Services Accordion (mobile only) ── */
+.services-accordion {
+  display: none;
+  margin-top: 48px;
+  border-top: 1.5px solid var(--gray-2);
+}
+.accordion-item {
+  border-bottom: 1.5px solid var(--gray-2);
+  transition: background 0.25s;
+}
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font);
+  -webkit-tap-highlight-color: transparent;
+}
+.accordion-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.1em;
+  min-width: 26px;
+  flex-shrink: 0;
+}
+.accordion-title {
+  flex: 1;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  transition: color 0.25s;
+}
+.accordion-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gray-1);
+  flex-shrink: 0;
+  position: relative;
+  transition: background 0.25s, transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.accordion-icon::before,
+.accordion-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--black);
+  border-radius: 2px;
+  transition: background 0.25s, transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s;
+}
+.accordion-icon::before {
+  width: 14px;
+  height: 2px;
+  transform: translate(-50%, -50%);
+}
+.accordion-icon::after {
+  width: 2px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+}
+.accordion-item.open .accordion-trigger .accordion-title {
+  color: var(--blue);
+}
+.accordion-item.open .accordion-icon {
+  background: var(--blue);
+  transform: rotate(45deg);
+}
+.accordion-item.open .accordion-icon::before,
+.accordion-item.open .accordion-icon::after {
+  background: var(--white);
+}
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.accordion-item.open .accordion-body {
+  max-height: 400px;
+}
+.accordion-body-inner {
+  padding: 0 0 28px 42px;
+}
+.accordion-body-inner ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.accordion-body-inner li {
+  font-size: 15px;
+  color: var(--gray-4);
+  line-height: 1.9;
+  padding-left: 14px;
+  position: relative;
+}
+.accordion-body-inner li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--lime);
+  border: 1.5px solid var(--black);
 }
 
 /* =========================================
@@ -579,7 +694,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .hero { min-height: 100svh; padding: 100px 0 60px; }
   .hero-accent { width: 280px; height: 280px; right: -80px; opacity: 0.4; }
   .services { padding: 80px 0; }
-  .services-circles { flex-direction: column; align-items: center; gap: 0; }
+  .services-circles { display: none; }
+  .services-accordion { display: block; }
   .service-circle { width: min(380px, 88vw); flex: none; }
   .works { padding: 80px 0; }
   .works-header { flex-direction: column; align-items: flex-start; gap: 20px; }
